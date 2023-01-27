@@ -156,7 +156,7 @@ class _AddScreenState extends State<AddScreen> {
                 ),
               ),
             ),
-            Text('$pickedDate'),
+            Text(pickedDate.toString()),
             Padding(
               padding:EdgeInsets.all(30.0),
               child:Container(

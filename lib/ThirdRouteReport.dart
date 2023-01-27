@@ -22,7 +22,7 @@ class _ThirdRouteReportState extends State<ThirdRouteReport> {
         Map<String, dynamic> data = doc.data();
         int amount = data['Amount'];
         String category=data["category"];
-        if(category=="Income")
+        if(category=="Expenses")
         {
           docs.add(data);
         }
@@ -97,7 +97,7 @@ class _ThirdRouteReportState extends State<ThirdRouteReport> {
                             Map<String, dynamic> data = doc.data();
                             int amount = data['Amount'];
                             String category=data["category"];
-                            if(category=="Income")
+                            if(category=="Expenses")
                             {
                               docs.add(data);
                             }

@@ -9,6 +9,7 @@ import 'package:mynote/RegisterScreen.dart';
 import 'package:mynote/Verify.dart';
 
 import 'Home.dart';
+import 'ResetScreen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -21,6 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool value = true;
   TextEditingController EmailController = new TextEditingController();
   TextEditingController PasswordController = new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -140,7 +142,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   Text("Forgot Password?"),
                   TextButton(
                       onPressed: () {
-                        setState(() {});
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ResetScreen()),
+                          );
+                        });
                       },
                       child: Text("Reset Here"))
                 ],

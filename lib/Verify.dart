@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -86,8 +87,12 @@ class _VerifyScreenState extends State<VerifyScreen> {
                 Text("Didn't got a verfication email?"),
                 TextButton(
                     onPressed: () {
-                      setState(() {
-
+                      setState(() async {
+                        var collection = FirebaseFirestore.instance.collection(user1!.email.toString());
+                        var snapshots = await collection.get();
+                        for (var doc in snapshots.docs) {
+                          await doc.reference.delete();
+                        }
                       });
                     },
                     child: Text("Wrong Email Address"))
